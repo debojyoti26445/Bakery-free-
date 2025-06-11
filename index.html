@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Inventory Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <main class="container my-4">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mb-4">Bakery Inventory Management</h1>
+                
+                <!-- Search Bar -->
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <input type="text" id="searchTools" class="form-control" placeholder="Search tools...">
+                            <button class="btn btn-primary" type="button">Search</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools Grid -->
+                <div class="row g-4" id="toolsGrid">
+                    <!-- Item Management -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Item Management</h5>
+                                <p class="card-text">Add, delete, and manage inventory items.</p>
+                                <a href="tools/item-management.html" class="btn btn-primary">Open Tool</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stock Entry -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Stock Entry</h5>
+                                <p class="card-text">Manage opening stock and daily receiving entries.</p>
+                                <a href="tools/stock-entry.html" class="btn btn-primary">Open Tool</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sales Management -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Sales Management</h5>
+                                <p class="card-text">Record sales and manage stock deductions.</p>
+                                <a href="tools/sales-management.html" class="btn btn-primary">Open Tool</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reports -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Reports</h5>
+                                <p class="card-text">Generate and download various inventory reports.</p>
+                                <a href="tools/reports.html" class="btn btn-primary">Open Tool</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stock Adjustment -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Stock Adjustment</h5>
+                                <p class="card-text">Manage manual stock adjustments and GVN entries.</p>
+                                <a href="tools/stock-adjustment.html" class="btn btn-primary">Open Tool</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Good Return (GR) -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Good Return (GR)</h5>
+                                <p class="card-text">Calculate and track good returns for items.</p>
+                                <a href="tools/good-return.html" class="btn btn-primary">Open Tool</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

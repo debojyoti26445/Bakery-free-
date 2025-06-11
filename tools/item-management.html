@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Management - Bakery Inventory</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <main class="container my-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1>Item Management</h1>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addItemModal">
+                        <i class="bi bi-plus-lg"></i> Add New Item
+                    </button>
+                </div>
+
+                <!-- Search and Filter Section -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="searchItems" placeholder="Search items...">
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select" id="categoryFilter">
+                                    <option value="">All Categories</option>
+                                    <option value="bread">Bread</option>
+                                    <option value="pastry">Pastry</option>
+                                    <option value="cake">Cake</option>
+                                    <option value="cookie">Cookie</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select" id="sortBy">
+                                    <option value="name">Sort by Name</option>
+                                    <option value="category">Sort by Category</option>
+                                    <option value="price">Sort by Price</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Items Table -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Shelf Life (days)</th>
+                                        <th>Total Stock</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="itemsTableBody">
+                                    <!-- Items will be loaded here dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Item Modal -->
+    <div class="modal fade" id="addItemModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addItemForm">
+                        <div class="mb-3">
+                            <label for="itemName" class="form-label">Item Name</label>
+                            <input type="text" class="form-control" id="itemName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="itemCategory" class="form-label">Category</label>
+                            <select class="form-select" id="itemCategory" required>
+                                <option value="bread">Bread</option>
+                                <option value="pastry">Pastry</option>
+                                <option value="cake">Cake</option>
+                                <option value="cookie">Cookie</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="itemPrice" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="itemPrice" step="0.01" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="shelfLife" class="form-label">Shelf Life (days)</label>
+                            <input type="number" class="form-control" id="shelfLife" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveItem">Save Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Item Modal -->
+    <div class="modal fade" id="editItemModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editItemForm">
+                        <input type="hidden" id="editItemId">
+                        <div class="mb-3">
+                            <label for="editItemName" class="form-label">Item Name</label>
+                            <input type="text" class="form-control" id="editItemName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editItemCategory" class="form-label">Category</label>
+                            <select class="form-select" id="editItemCategory" required>
+                                <option value="bread">Bread</option>
+                                <option value="pastry">Pastry</option>
+                                <option value="cake">Cake</option>
+                                <option value="cookie">Cookie</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editItemPrice" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="editItemPrice" step="0.01" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editShelfLife" class="form-label">Shelf Life (days)</label>
+                            <input type="number" class="form-control" id="editShelfLife" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="updateItem">Update Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/main.js"></script>
+    <script src="../js/item-management.js"></script>
+</body>
+</html> 

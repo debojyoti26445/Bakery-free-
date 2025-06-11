@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Return (GR) - Bakery Inventory</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <main class="container my-4">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">Good Return (GR) Management</h1>
+
+                <!-- GR Calculator -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Calculate Good Return</h5>
+                        <form id="grCalculatorForm">
+                            <div class="row g-3 justify-content-center">
+                                <div class="col-md-4">
+                                    <label for="grDate" class="form-label">As of Date</label>
+                                    <input type="date" class="form-control" id="grDate" required>
+                                </div>
+                                <div class="col-md-4 d-flex align-items-end">
+                                    <button type="submit" class="btn btn-primary w-100">Calculate GR</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- GR Results -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="card-title mb-0">Good Return Results</h5>
+                            <div class="btn-group">
+                                <button class="btn btn-outline-primary" onclick="printGRReport()">
+                                    <i class="bi bi-printer"></i> Print
+                                </button>
+                                <button class="btn btn-outline-primary" onclick="downloadGRPDF()">
+                                    <i class="bi bi-download"></i> Download PDF
+                                </button>
+                            </div>
+                        </div>
+                        <div id="grResults" class="table-responsive">
+                            <!-- GR results will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- GR Details Modal -->
+    <div class="modal fade" id="grDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">GR Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="grDetailsContent">
+                        <!-- GR details will be loaded here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="printGRDetails()">Print</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jsPDF for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/main.js"></script>
+    <script src="../js/good-return.js"></script>
+</body>
+</html> 

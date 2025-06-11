@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Entry - Bakery Inventory</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <main class="container my-4">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">Stock Entry</h1>
+
+                <!-- Stock Entry Tabs -->
+                <ul class="nav nav-tabs mb-4" id="stockEntryTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="opening-tab" data-bs-toggle="tab" data-bs-target="#opening" type="button" role="tab">
+                            Opening Stock
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="receiving-tab" data-bs-toggle="tab" data-bs-target="#receiving" type="button" role="tab">
+                            Daily Receiving
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content" id="stockEntryTabContent">
+                    <!-- Opening Stock Tab -->
+                    <div class="tab-pane fade show active" id="opening" role="tabpanel">
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="openingStockForm">
+                                    <div class="row g-3">
+                                        <div class="col-md-4">
+                                            <label for="openingItem" class="form-label">Select Item</label>
+                                            <select class="form-select" id="openingItem" required>
+                                                <option value="">Choose an item...</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="openingQuantity" class="form-label">Quantity</label>
+                                            <input type="number" class="form-control" id="openingQuantity" required min="0">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="openingDate" class="form-label">Date</label>
+                                            <input type="date" class="form-control" id="openingDate" required>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <button type="submit" class="btn btn-primary">Save Opening Stock</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Opening Stock Table -->
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Opening Stock Records</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Item</th>
+                                                <th>Quantity</th>
+                                                <th>Date</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="openingStockTableBody">
+                                            <!-- Opening stock records will be loaded here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Daily Receiving Tab -->
+                    <div class="tab-pane fade" id="receiving" role="tabpanel">
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="receivingStockForm">
+                                    <div class="row g-3">
+                                        <div class="col-md-4">
+                                            <label for="receivingItem" class="form-label">Select Item</label>
+                                            <select class="form-select" id="receivingItem" required>
+                                                <option value="">Choose an item...</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="receivingQuantity" class="form-label">Quantity</label>
+                                            <input type="number" class="form-control" id="receivingQuantity" required min="0">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="receivingDate" class="form-label">Date</label>
+                                            <input type="date" class="form-control" id="receivingDate" required>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <button type="submit" class="btn btn-primary">Save Receiving Stock</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Receiving Stock Table -->
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Daily Receiving Records</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Item</th>
+                                                <th>Quantity</th>
+                                                <th>Date</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="receivingStockTableBody">
+                                            <!-- Receiving stock records will be loaded here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/main.js"></script>
+    <script src="../js/stock-entry.js"></script>
+</body>
+</html> 
